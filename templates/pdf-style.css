@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #1a1a2e;
+  --accent: #e63946;
+  --blue: #2563eb;
+  --light: #f8fafc;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--text);
+  background: white;
+}
+
+/* Cover Page */
+.cover {
+  page-break-after: always;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.cover .logo-area {
+  margin-bottom: 40px;
+}
+
+.cover .company {
+  font-size: 13pt;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+
+.cover h1 {
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.cover .subtitle {
+  font-size: 14pt;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 40px;
+}
+
+.cover .badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 10pt;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.cover .meta {
+  font-size: 10pt;
+  color: rgba(255,255,255,0.5);
+  line-height: 2;
+}
+
+/* Page setup */
+@page {
+  size: A4;
+  margin: 20mm 18mm 20mm 18mm;
+}
+
+@page :first {
+  margin: 0;
+}
+
+/* Main content */
+.content {
+  padding: 0;
+}
+
+/* Headers */
+h1 {
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 32px 0 8px 0;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--accent);
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 24px 0 8px 0;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: var(--blue);
+  margin: 16px 0 6px 0;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--text);
+  margin: 12px 0 4px 0;
+  page-break-after: avoid;
+}
+
+/* Paragraphs */
+p {
+  margin: 0 0 10px 0;
+}
+
+/* Lists */
+ul, ol {
+  margin: 6px 0 10px 20px;
+}
+
+li {
+  margin: 3px 0;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+
+thead {
+  background: var(--primary);
+  color: white;
+}
+
+thead th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 9pt;
+  letter-spacing: 0.3px;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--light);
+}
+
+tbody tr:hover {
+  background: #e8f0ff;
+}
+
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+/* Blockquotes / callouts */
+blockquote {
+  border-left: 4px solid var(--blue);
+  background: #eff6ff;
+  padding: 10px 14px;
+  margin: 12px 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 9.5pt;
+}
+
+blockquote p {
+  margin: 0;
+  color: #1e40af;
+}
+
+blockquote strong {
+  color: #1e40af;
+}
+
+/* Code / inline */
+code {
+  background: #f1f5f9;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 9pt;
+  font-family: 'Courier New', monospace;
+}
+
+/* Strong */
+strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Links */
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* TOC section */
+.toc {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0 24px 0;
+}
+
+.toc h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* Section number badges */
+h2::before {
+  display: none;
+}
+
+/* HR separator */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* Page breaks */
+.page-break {
+  page-break-after: always;
+}
+
+/* Footer */
+.footer-note {
+  font-size: 8.5pt;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* Priority badges in tables */
+td strong {
+  color: var(--accent);
+}
+
+/* Checkbox list */
+li input[type="checkbox"] {
+  margin-right: 6px;
+}
