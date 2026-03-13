@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Wohnungsratgeber Nürnberg</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #1a1a2e;
+  --accent: #e63946;
+  --blue: #2563eb;
+  --light: #f8fafc;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--text);
+  background: white;
+}
+
+/* Cover Page */
+.cover {
+  page-break-after: always;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.cover .logo-area {
+  margin-bottom: 40px;
+}
+
+.cover .company {
+  font-size: 13pt;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+
+.cover h1 {
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.cover .subtitle {
+  font-size: 14pt;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 40px;
+}
+
+.cover .badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 10pt;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.cover .meta {
+  font-size: 10pt;
+  color: rgba(255,255,255,0.5);
+  line-height: 2;
+}
+
+/* Page setup */
+@page {
+  size: A4;
+  margin: 20mm 18mm 20mm 18mm;
+}
+
+@page :first {
+  margin: 0;
+}
+
+/* Main content */
+.content {
+  padding: 0;
+}
+
+/* Headers */
+h1 {
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 32px 0 8px 0;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--accent);
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 24px 0 8px 0;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 11.5pt;
+  font-weight: 600;
+  color: var(--blue);
+  margin: 16px 0 6px 0;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: var(--text);
+  margin: 12px 0 4px 0;
+  page-break-after: avoid;
+}
+
+/* Paragraphs */
+p {
+  margin: 0 0 10px 0;
+}
+
+/* Lists */
+ul, ol {
+  margin: 6px 0 10px 20px;
+}
+
+li {
+  margin: 3px 0;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+
+thead {
+  background: var(--primary);
+  color: white;
+}
+
+thead th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 9pt;
+  letter-spacing: 0.3px;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--light);
+}
+
+tbody tr:hover {
+  background: #e8f0ff;
+}
+
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+/* Blockquotes / callouts */
+blockquote {
+  border-left: 4px solid var(--blue);
+  background: #eff6ff;
+  padding: 10px 14px;
+  margin: 12px 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 9.5pt;
+}
+
+blockquote p {
+  margin: 0;
+  color: #1e40af;
+}
+
+blockquote strong {
+  color: #1e40af;
+}
+
+/* Code / inline */
+code {
+  background: #f1f5f9;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 9pt;
+  font-family: 'Courier New', monospace;
+}
+
+/* Strong */
+strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Links */
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* TOC section */
+.toc {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0 24px 0;
+}
+
+.toc h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* Section number badges */
+h2::before {
+  display: none;
+}
+
+/* HR separator */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* Page breaks */
+.page-break {
+  page-break-after: always;
+}
+
+/* Footer */
+.footer-note {
+  font-size: 8.5pt;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* Priority badges in tables */
+td strong {
+  color: var(--accent);
+}
+
+/* Checkbox list */
+li input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+  </style>
+</head>
+<body>
+<div class="cover">
+  <div class="logo-area">
+    <div class="company">Relocation Housing Guide</div>
+  </div>
+  <h1>Wohnungsratgeber<br>Nürnberg</h1>
+  <div class="subtitle">Ihre eigene haustierfreundliche Wohnung finden<br>Ein praktischer Leitfaden für internationale Neubürgerinnen und Neubürger</div>
+  <div class="badge">Szenarien: 600 € (1 Zimmer) &bull; 1.000 € (2 Zimmer)</div>
+  <div class="meta">
+    Version 1.0 &bull; März 2026<br>
+    Haustiere erlaubt &bull; Eigene Wohnung &bull; Langfristige Stabilität<br>
+    Portale &bull; Soziale Wohnungsanbieter &bull; Genossenschaften &bull; Ihre Rechte
+  </div>
+</div>
+<div class="content">
+<h1 id="wohnungsratgeber-nurnberg-fur-internationale-neuburgerinnen-und-neuburger">Wohnungsratgeber Nürnberg für internationale Neubürgerinnen und Neubürger</h1>
+<h2 id="ihre-eigene-haustierfreundliche-wohnung-finden-ein-praktischer-leitfaden">Ihre eigene haustierfreundliche Wohnung finden — Ein praktischer Leitfaden</h2>
+<p><strong>Version:</strong> 1.0 — März 2026
+<strong>Stadt:</strong> Nürnberg, Bayern, Deutschland
+<strong>Ihre Situation:</strong>
+- Szenario A: 1-Zimmer-Wohnung für 1 Person — max. <strong>€ 600,– / Monat warm</strong>
+- Szenario B: 2-Zimmer-Wohnung für 2 Personen — max. <strong>€ 1.000,– / Monat warm</strong>
+- <strong>Haustiere erlaubt ist ein hartes Kriterium</strong>
+- Eigene Wohnung (keine WG) für langfristige Stabilität gewünscht</p>
+<hr />
+<h2 id="inhaltsverzeichnis">Inhaltsverzeichnis</h2>
+<ol>
+<li><a href="#1-marktüberblick-nürnberg">Marktüberblick Nürnberg</a></li>
+<li><a href="#2-ihre-zwei-szenarien--was-sie-realistisch-erwarten-können">Ihre zwei Szenarien — Was Sie realistisch erwarten können</a></li>
+<li><a href="#3-wo-suchen--online-portale">Wo suchen — Online-Portale</a></li>
+<li><a href="#4-städtische-und-soziale-wohnungsanbieter-in-nürnberg">Städtische und soziale Wohnungsanbieter in Nürnberg</a></li>
+<li><a href="#5-die-besten-stadtteile-für-ihr-budget">Die besten Stadtteile für Ihr Budget</a></li>
+<li><a href="#6-haustierfreundliche-wohnungen--ihre-rechte-und-strategie">Haustierfreundliche Wohnungen — Ihre Rechte und Strategie</a></li>
+<li><a href="#7-eine-zweite-person-später-aufnehmen">Eine zweite Person später aufnehmen</a></li>
+<li><a href="#8-erforderliche-unterlagen-und-bewerbungsmappe">Erforderliche Unterlagen und Bewerbungsmappe</a></li>
+<li><a href="#9-die-arbeitgeberbescheinigung--wie-sie-sie-erhalten">Die Arbeitgeberbescheinigung — Wie Sie sie erhalten</a></li>
+<li><a href="#10-beratungsstellen-und-unterstützung-in-nürnberg">Beratungsstellen und Unterstützung in Nürnberg</a></li>
+<li><a href="#11-versteckte-kosten-und-was-sie-einplanen-sollten">Versteckte Kosten und was Sie einplanen sollten</a></li>
+<li><a href="#12-häufige-fehler-und-wie-sie-sie-vermeiden">Häufige Fehler und wie Sie sie vermeiden</a></li>
+<li><a href="#13-ihre-prioritätenliste--was-sie-wann-tun-sollten">Ihre Prioritätenliste — Was Sie wann tun sollten</a></li>
+<li><a href="#14-wichtige-kontakte-auf-einen-blick">Wichtige Kontakte auf einen Blick</a></li>
+</ol>
+<hr />
+<h2 id="1-marktuberblick-nurnberg">1. Marktüberblick Nürnberg</h2>
+<h3 id="ist-nurnberg-erschwinglich-im-vergleich-zu-anderen-deutschen-stadten">Ist Nürnberg erschwinglich im Vergleich zu anderen deutschen Städten?</h3>
+<p>Ja — deutlich günstiger als München oder Stuttgart. Nürnberg gilt als „B-Stadt" im deutschen Immobilienmarkt: groß genug für gute Jobangebote, aber erheblich günstiger als die Metropolen.</p>
+<table>
+<thead>
+<tr>
+<th>Stadt</th>
+<th>Durchschnittliche Angebotsmiete/m²</th>
+<th>Chancen mit Ihrem Budget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>München</td>
+<td>~24 €/m²</td>
+<td>Mit diesen Budgets sehr schwierig</td>
+</tr>
+<tr>
+<td>Stuttgart</td>
+<td>~15–19 €/m²</td>
+<td>Schwierig; meist Randlagen</td>
+</tr>
+<tr>
+<td><strong>Nürnberg</strong></td>
+<td><strong>~12–15 €/m²</strong></td>
+<td><strong>Realistisch — mit Einsatz</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="der-wichtigste-begriff-warmmiete-vs-kaltmiete">Der wichtigste Begriff: Warmmiete vs. Kaltmiete</h3>
+<p>Alles in diesem Leitfaden verwendet <strong>Warmmiete</strong> — die monatlichen Gesamtkosten inklusive aller Betriebskosten (Heizung, Wasser, Hausreinigung usw.). Wenn Sie ein Inserat sehen, fragen Sie immer:</p>
+<blockquote>
+<p><em>„Ist der Preis warm oder kalt?"</em></p>
+</blockquote>
+<p><strong>Kaltmiete</strong> ist die reine Grundmiete. <strong>Nebenkosten</strong> (Betriebskosten, Heizung) kommen mit ca. <strong>2,50–4,00 € pro m² pro Monat</strong> dazu. Ein Inserat „430 € kalt" für 25 m² kostet Sie in Wirklichkeit etwa 430 + (25 × 3) = <strong>505 € warm</strong>.</p>
+<p>Rechnen Sie immer die Gesamtkosten aus, bevor Sie Angebote vergleichen.</p>
+<h3 id="der-offizielle-mietspiegel">Der offizielle Mietspiegel</h3>
+<p>Nürnberg hat einen offiziellen Mietspiegel, zuletzt 2024 aktualisiert. Er weist Durchschnittswerte von <strong>9,65 €/m²</strong> aus — aber das spiegelt bestehende Langzeitverträge wider, keine aktuellen Neuangebote. <strong>Neuinserate</strong> verlangen derzeit 11,85–14,80 €/m², je nach Größe und Lage. Der Mietspiegel ist vor allem nützlich, wenn Sie eine überhöhte Miete rechtlich anfechten möchten.</p>
+<p><strong>Offizielle Quelle:</strong> https://www.nuernberg.de/internet/wohnen/mietenspiegel.html</p>
+<hr />
+<h2 id="2-ihre-zwei-szenarien-was-sie-realistisch-erwarten-konnen">2. Ihre zwei Szenarien — Was Sie realistisch erwarten können</h2>
+<h3 id="szenario-a-1-zimmer-wohnung-max-600-warm">Szenario A: 1-Zimmer-Wohnung, max. 600 € warm</h3>
+<p><strong>Einschätzung: Anspruchsvoll, aber machbar — erfordert Schnelligkeit und Vorbereitung.</strong></p>
+<p>Kleine 1-Zimmer-Wohnungen (20–30 m²) in Nürnbergs Randlagen kosten derzeit ca. 450–660 € warm. Bei 600 € befinden Sie sich an der realistischen Untergrenze des Marktes.</p>
+<p><strong>Was 600 € warm Ihnen bietet:</strong>
+- Studio oder 1-Zimmer-Wohnung mit ca. 20–30 m²
+- Meist Randlagen: Langwasser, Steinbühl/Gibitzenhof, Schniegling, Röthenbach, Eibach
+- Älterer Gebäudebestand (oft Baujahr vor 1990)
+- Einfache Ausstattung — häufig <strong>ohne Einbauküche</strong> (in Deutschland verbreitet)
+- Wahrscheinlich kein Balkon</p>
+<p><strong>Inserateangebote gibt es:</strong> Immonet und ImmobilienScout24 zeigen regelmäßig Wohnungen unter 600 € warm in Nürnberg. Diese verschwinden jedoch schnell — oft innerhalb von 24–48 Stunden. Ihre Unterlagen müssen fertig sein, bevor Sie mit der Suche beginnen.</p>
+<p><strong>Ergänzende Wege, die Sie parallel nutzen sollten:</strong>
+- <strong>Sozialwohnungen (WBS):</strong> Ein Wohnberechtigungsschein öffnet den Zugang zu deutlich günstigeren Wohnungen. Antrag beim Sozialamt stellen (siehe Abschnitt 4).
+- <strong>Wohnungsgenossenschaften:</strong> Jetzt beitreten — die Wartezeit beträgt 6–24 Monate, aber die Miete bleibt dauerhaft unter 600 €.</p>
+<hr />
+<h3 id="szenario-b-2-zimmer-wohnung-max-1000-warm">Szenario B: 2-Zimmer-Wohnung, max. 1.000 € warm</h3>
+<p><strong>Einschätzung: Ja, das ist erreichbar — es gibt ausreichend Angebot.</strong></p>
+<p>Eine 2-Zimmer-Wohnung mit 45–60 m² in Nürnbergs mittleren Lagen kostet ca. 750–994 € warm. Mit 1.000 € Budget haben Sie echten Spielraum.</p>
+<p><strong>Was 1.000 € warm Ihnen bietet:</strong>
+- 45–60 m² in gut angebundenen Stadtteilen (Gostenhof, Gartenstadt, Gibitzenhof, Langwasser)
+- Vereinzelt auch zentralere Lagen
+- Bessere Bauqualität; Balkon wahrscheinlicher
+- Mehr Verhandlungsspielraum bei Haustieren (Sie sind als langfristige Mieterin wertvoller)
+- Ausreichend Platz, wenn Ihr Partner später nachzieht</p>
+<p><strong>Angebotslage:</strong> Immonet zeigte zuletzt über 481 Wohnungen unter 1.000 € warm in Nürnberg. Dieses Budget gibt Ihnen echte Auswahlmöglichkeiten.</p>
+<blockquote>
+<p><strong>Strategische Empfehlung:</strong> Wenn Ihre Finanzen es erlauben, wählen Sie von Anfang an Szenario B. Eine größere Wohnung erleichtert Gespräche mit dem Vermieter über Haustiere, vermeidet einen erneuten Umzug, wenn Ihr Partner kommt, und das Budget von 1.000 € lässt Ihnen Verhandlungsspielraum.</p>
+</blockquote>
+<hr />
+<h2 id="3-wo-suchen-online-portale">3. Wo suchen — Online-Portale</h2>
+<h3 id="aktivieren-sie-push-benachrichtigungen-nicht-nur-lesezeichen">Aktivieren Sie Push-Benachrichtigungen — nicht nur Lesezeichen</h3>
+<p>Der Nürnberger Mietmarkt ist schnell: Die besten Wohnungen in diesen Preisklassen sind in 24–48 Stunden vergeben. Aktivieren Sie bei <strong>ImmobilienScout24</strong> die „Sofortbenachrichtigung" für Ihre gespeicherte Suche. Machen Sie dasselbe bei Immowelt. Prüfen Sie Kleinanzeigen täglich.</p>
+<h3 id="stufe-1-taglich-prufen-pflicht">Stufe 1 — Täglich prüfen (Pflicht)</h3>
+<p><strong>ImmobilienScout24 (IS24)</strong> — Deutschlands größtes Mietportal</p>
+<table>
+<thead>
+<tr>
+<th>Suche</th>
+<th>Direktlink</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alle Nürnberger Mietwohnungen</td>
+<td>https://www.immobilienscout24.de/Suche/de/bayern/nuernberg/wohnung-mieten</td>
+</tr>
+<tr>
+<td>Nur 1-Zimmer-Wohnungen</td>
+<td>https://www.immobilienscout24.de/Suche/de/bayern/nuernberg/1-zimmer-wohnung-mieten</td>
+</tr>
+<tr>
+<td>Nur Privatvermieter</td>
+<td>https://www.immobilienscout24.de/Suche/de/bayern/nuernberg/wohnung-von-privat-mieten</td>
+</tr>
+<tr>
+<td>Günstige Angebote</td>
+<td>https://www.immobilienscout24.de/Suche/de/bayern/nuernberg/guenstige-wohnung-mieten</td>
+</tr>
+</tbody>
+</table>
+<p>Nutzen Sie die <strong>Erweiterte Suche</strong>: Gesamtmiete-Obergrenze setzen, <strong>„Haustiere erlaubt"</strong> ankreuzen.</p>
+<p><strong>Immowelt</strong>
+- Nürnberg gesamt: https://www.immowelt.de/suche/nuernberg/wohnungen/mieten
+- Haustiere-Filter und Budget in den erweiterten Optionen aktivieren</p>
+<p><strong>Immonet</strong> — Gut für budgetgefilterte Suchanfragen</p>
+<table>
+<thead>
+<tr>
+<th>Budget</th>
+<th>Direktlink</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bis 600 €</td>
+<td>https://www.immonet.de/bayern/nuernberg-wohnung-bis-600-euro.html</td>
+</tr>
+<tr>
+<td>Bis 1.000 €</td>
+<td>https://www.immonet.de/bayern/nuernberg-wohnung-bis-1000-euro.html</td>
+</tr>
+<tr>
+<td>Bis 600 € in Röthenbach</td>
+<td>https://www.immonet.de/bayern/nuernberg-suedwestliche-aussenstadt-roethenbach-b-schweinau-wohnung-bis-600-euro.html</td>
+</tr>
+</tbody>
+</table>
+<p><strong>wbg Nürnberg</strong> — Direktsuche im Bestand der städtischen Wohnungsgesellschaft
+- https://wbg.nuernberg.de/de/mieten/wohnungen/wohnungssuche</p>
+<p><strong>Siedlungswerk Nürnberg (SWN)</strong>
+- https://swnuernberg.de/wohnungsangebote/</p>
+<hr />
+<h3 id="stufe-2-regelmaig-prufen">Stufe 2 — Regelmäßig prüfen</h3>
+<table>
+<thead>
+<tr>
+<th>Portal</th>
+<th>URL</th>
+<th>Besonders geeignet für</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WG-Gesucht (1-Zimmer, komplett)</td>
+<td>https://www.wg-gesucht.de/1-zimmer-wohnungen-in-Nuernberg.96.1.1.0.html</td>
+<td>Ganze Wohnungen, keine Mitbewohner</td>
+</tr>
+<tr>
+<td>WG-Gesucht (2-Zimmer, komplett)</td>
+<td>https://www.wg-gesucht.de/suche/2-room/wohnungen-in-Nuernberg.96.2.1.0.html</td>
+<td>2-Zimmer-Wohnungen komplett</td>
+</tr>
+<tr>
+<td>Kleinanzeigen.de</td>
+<td>https://www.kleinanzeigen.de/s-wohnung-mieten/nuernberg/c203l5718</td>
+<td>Privatvermieter; Stichwort „Haustiere" ergänzen</td>
+</tr>
+<tr>
+<td>Immobilo</td>
+<td>https://www.immobilo.de/mieten/wohnung/nuernberg/1-zimmer</td>
+<td>Aggregiert mehrere Portale</td>
+</tr>
+<tr>
+<td>MeineStadt.de</td>
+<td>https://www.meinestadt.de/nuernberg/immobilien/1-zimmer-wohnung</td>
+<td>Stadtteilfilter möglich</td>
+</tr>
+<tr>
+<td>inFranken.de Immo</td>
+<td>https://immo.infranken.de</td>
+<td>Lokale Zeitung — Privatvermieter</td>
+</tr>
+<tr>
+<td>Wohnungsboerse.net</td>
+<td>https://www.wohnungsboerse.net/mietwohnungen-Nuernberg/2176</td>
+<td>Zusätzliche Inserate</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="stufe-3-facebook-gruppen-eigenes-gesuch-aufgeben">Stufe 3 — Facebook-Gruppen (Eigenes Gesuch aufgeben!)</h3>
+<p>Schalten Sie ein eigenes Wohnungsgesuch in diesen Gruppen auf Deutsch:</p>
+<table>
+<thead>
+<tr>
+<th>Gruppe</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WG &amp; Wohnung Nürnberg gesucht</td>
+<td>https://www.facebook.com/groups/wg.wohnung.nuernberg/</td>
+</tr>
+<tr>
+<td>Nürnberg.Immo</td>
+<td>https://www.facebook.com/groups/Nuernberg.Immo/</td>
+</tr>
+<tr>
+<td>Wohnungen in Nürnberg</td>
+<td>https://www.facebook.com/wohnungen.in.nuernberg/</td>
+</tr>
+<tr>
+<td>Nachmieter Nürnberg</td>
+<td>https://www.facebook.com/Wohnung.Nuernberg/</td>
+</tr>
+<tr>
+<td>Wohnung mieten Nürnberg</td>
+<td>https://www.facebook.com/Wohnungen.mieten.Nuernberg/</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ihr Gesuch sollte enthalten:</strong>
+- Wer Sie sind und Ihr Beruf
+- Budget (Szenario A oder B)
+- Gewünschter Einzugstermin
+- Tierart und kurze Beschreibung
+- Dass Sie Nichtraucherin sind (wenn zutreffend)
+- Festes Einkommen / Anstellung</p>
+<p>Privatvermieter in Facebook-Gruppen sind bei Haustieren und Unterlagen oft flexibler als Agenturen.</p>
+<hr />
+<h2 id="4-stadtische-und-soziale-wohnungsanbieter-in-nurnberg">4. Städtische und soziale Wohnungsanbieter in Nürnberg</h2>
+<h3 id="wbg-nurnberg-gmbh-die-stadtische-wohnungsgesellschaft">wbg Nürnberg GmbH — Die städtische Wohnungsgesellschaft</h3>
+<p>Mit über <strong>20.000 Mietwohnungen</strong> ist die wbg der größte Immobilienverwalter im Großraum Nürnberg (ca. jede zehnte Nürnberger Wohnung). Gegründet 1918.</p>
+<ul>
+<li><strong>Hauptsitz:</strong> Glogauer Straße 70, 90473 Nürnberg</li>
+<li><strong>Telefon:</strong> 0911 / 8004-0</li>
+<li><strong>Website:</strong> https://wbg.nuernberg.de/de/</li>
+<li><strong>Wohnungssuche:</strong> https://wbg.nuernberg.de/de/mieten/wohnungen/wohnungssuche</li>
+<li><strong>Geförderte Wohnungen (WBS):</strong> https://wbg.nuernberg.de/de/mieten/wohnungen/sozialer-wohnungsbau</li>
+</ul>
+<p><strong>Kundencenter (persönliche Beratung vor Ort):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Standort</th>
+<th>Adresse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Südwest</td>
+<td>Rothenburger Straße 184, 90439 Nürnberg</td>
+</tr>
+<tr>
+<td>Südost</td>
+<td>Reinerzer Straße 72a, 90473 Nürnberg</td>
+</tr>
+<tr>
+<td>Nordwest</td>
+<td>Johannisstraße 167, 90419 Nürnberg</td>
+</tr>
+<tr>
+<td>Nordost</td>
+<td>Leipziger Straße 48, 90491 Nürnberg</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="siedlungswerk-nurnberg-gmbh-swn-staatlich-geforderter-wohnungsbau">Siedlungswerk Nürnberg GmbH (SWN) — Staatlich geförderter Wohnungsbau</h3>
+<p>Gegründet 1919 als Tochtergesellschaft des Freistaats Bayern. Ca. 8.700 Wohnungen im Großraum Nürnberg, Mischung aus geförderten und frei finanzierten Einheiten. Mieten in der Regel unter Marktniveau.</p>
+<ul>
+<li><strong>Website:</strong> https://swnuernberg.de</li>
+<li><strong>Aktuelle Angebote:</strong> https://swnuernberg.de/wohnungsangebote/</li>
+</ul>
+<hr />
+<h3 id="wohnberechtigungsschein-wbs-ihr-zugang-zu-sozialwohnungen">Wohnberechtigungsschein (WBS) — Ihr Zugang zu Sozialwohnungen</h3>
+<p>Ein WBS ermöglicht den Zugang zu staatlich geförderten Wohnungen, die deutlich unter Marktmiete vermietet werden. Stellen Sie den Antrag — auch wenn Sie unsicher sind, ob Sie die Voraussetzungen erfüllen. Der Antrag ist kostenlos.</p>
+<p><strong>Voraussetzungen:</strong> Das Haushaltsnettoeinkommen darf die bayerischen Einkommensgrenzen nicht überschreiten. Für Alleinstehende liegt die Grenze (Stand 2024/2025) bei ca. 12.000–14.000 € Nettojahreseinkommen. Für weitere Haushaltsmitglieder gibt es Zuschläge. Den genauen Betrag erfragen Sie beim Sozialamt.</p>
+<p><strong>Antragstellung in Nürnberg:</strong>
+- <strong>Sozialamt Nürnberg / Wohnungsvermittlung</strong>
+- <strong>Adresse:</strong> Marienstraße 6, 90402 Nürnberg
+- <strong>Telefon:</strong> 0911 / 231-2195
+- <strong>E-Mail:</strong> wohnungsvermittlung@stadt.nuernberg.de
+- <strong>Öffnungszeiten:</strong> Montag–Freitag, 08:30–12:30 Uhr
+- <strong>Website:</strong> https://www.nuernberg.de/internet/sozialamt_nbg/wohnungsvermittlung.html</p>
+<p><strong>Zwei Formen in Nürnberg:</strong>
+1. <strong>Vormerkbescheid:</strong> Die Stadt schlägt Ihnen aktiv eine konkrete Sozialwohnung vor
+2. <strong>Allgemeiner WBS:</strong> Sie erhalten einen Schein und bewerben sich selbständig bei Vermietern, die WBS-Wohnungen anbieten</p>
+<p>Ein in Nürnberg ausgestellter WBS gilt für ganz Bayern.</p>
+<blockquote>
+<p><strong>Tipp:</strong> Stellen Sie den WBS-Antrag auch dann, wenn Sie vorhaben, auf dem freien Markt zu suchen. Es kostet nichts und erschließt Ihnen einen zusätzlichen Pool deutlich günstigerer Wohnungen.</p>
+</blockquote>
+<hr />
+<h3 id="wohnungsgenossenschaften-langfristige-sicherheit-zu-gunstigen-mieten">Wohnungsgenossenschaften — Langfristige Sicherheit zu günstigen Mieten</h3>
+<p>Genossenschaften bieten:
+- <strong>Mieten unterhalb des Marktniveaus</strong> (typischerweise 10–20 % günstiger)
+- <strong>Lebenslanges Wohnrecht</strong> — Sie können nicht beliebig gekündigt werden
+- <strong>Vollständige Rückzahlung</strong> der Genossenschaftsanteile beim Auszug
+- <strong>Keine Maklerprovision</strong></p>
+<p>Der Nachteil: Sie kaufen Anteile im Voraus und warten auf eine freie Wohnung (6 Monate bis 2 Jahre). <strong>Beantragen Sie die Mitgliedschaft jetzt</strong> — die Wartezeit läuft, während Sie parallel auf dem freien Markt suchen.</p>
+<p><strong>Wichtige Genossenschaften in Nürnberg:</strong></p>
+<p><strong>WG NORIS eG</strong> <em>(Empfehlung — hier zuerst anfragen)</em>
+- Bestand: über 2.500 Wohnungen in Nürnberg
+- <strong>Adresse:</strong> Herbartstraße 30, 90461 Nürnberg
+- <strong>Telefon:</strong> 0911 / 94965-0
+- <strong>E-Mail:</strong> info@wgnoris.de
+- <strong>Website:</strong> https://wgnoris.de
+- <strong>Wohnungssuche:</strong> https://wgnoris.de/wohnungssuche/
+- <strong>Öffnungszeiten:</strong> Mo 09–12 &amp; 13–16:30 Uhr; Di 09–12 Uhr; Do 09–12 &amp; 13–17:30 Uhr; Fr 09–12 Uhr</p>
+<p><strong>Wohnungsgenossenschaft Nürnberg-Nord eG</strong>
+- Website: https://wg-nuernberg-nord.de
+- Angebote: https://wg-nuernberg-nord.de/?page_id=247191</p>
+<p><strong>Wohnungsgenossenschaft Nürnberg Süd-Ost eG</strong>
+- Neuere Wohnungen; Südost-Nürnberg, Lauf a. d. Pegnitz, Rosstal
+- Website: https://wg-nbg-sued-ost.de</p>
+<p><strong>BGSN Gruppe (Baugenossenschaft Selbsthilfe Nürnberg)</strong>
+- Eine der größten Genossenschaften Bayerns; ca. 3.000 Wohneinheiten in Nürnberg, Fürth, Erlangen
+- Website: https://www.bgsn.de</p>
+<p><strong>Wie der Beitritt funktioniert:</strong>
+1. Mitgliedschaftsantrag stellen (online oder persönlich)
+2. Genossenschaftsanteile zeichnen (typischerweise 500–5.000 € gesamt — beim Auszug vollständig rückerstattet)
+3. Einmalige Aufnahmegebühr (150–500 €)
+4. Aufnahme in die interne Bewerberliste
+5. Sobald eine Wohnung frei wird: Besichtigung und langfristiger Mietvertrag
+6. Monatsmieten deutlich unter Marktpreis; deutlich stärkerer Kündigungsschutz</p>
+<p>Alle Nürnberger Genossenschaften im Überblick:
+- https://baugenossenschaft.info/wohnungsbaugenossenschaften-bayern/wohnungsgenossenschaft-nuernberg/
+- https://www.wohnungswirtschaft-mittelfranken.de/mitglieder/</p>
+<hr />
+<h2 id="5-die-besten-stadtteile-fur-ihr-budget">5. Die besten Stadtteile für Ihr Budget</h2>
+<h3 id="ubersicht-gunstigste-bis-teuerste-lagen">Übersicht: günstigste bis teuerste Lagen</h3>
+<table>
+<thead>
+<tr>
+<th>Stadtteil</th>
+<th>U-Bahn</th>
+<th>Kaltmiete/m² ca.</th>
+<th>Hinweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Langwasser</strong></td>
+<td>U1</td>
+<td>9,55–11,54 €</td>
+<td><strong>Günstigste Lage für Szenario A; exzellente Grünanlagen für Haustiere</strong></td>
+</tr>
+<tr>
+<td>Steinbühl / Gibitzenhof</td>
+<td>Tram</td>
+<td>11–12,19 €</td>
+<td>Südliche Südstadt; entspannter Markt, weniger Mitbewerber</td>
+</tr>
+<tr>
+<td><strong>Röthenbach b. Schweinau</strong></td>
+<td>U2</td>
+<td>~10–11 €</td>
+<td>U2-Endstation; sehr geringes Konkurrenzaufkommen</td>
+</tr>
+<tr>
+<td>Schniegling / Muggenhof</td>
+<td>Bus</td>
+<td>~11 €</td>
+<td>Nordwest; günstige Arbeiterwohnlage</td>
+</tr>
+<tr>
+<td>Eibach</td>
+<td>Bus</td>
+<td>~12,90 €</td>
+<td>Süd-Nürnberg; ruhiges Wohngebiet</td>
+</tr>
+<tr>
+<td><strong>Gartenstadt</strong></td>
+<td>U2/U3</td>
+<td>~11,21–12,40 €</td>
+<td>Oft günstigste Lage mit verfügbarem Bestand; viel Grün</td>
+</tr>
+<tr>
+<td><strong>Gostenhof („GoHo")</strong></td>
+<td>U1</td>
+<td>~13,45 €</td>
+<td>Kreativ, multikulturell — „Nürnbergs Brooklyn" — gutes Preis-Leistungs-Verhältnis</td>
+</tr>
+<tr>
+<td>Nordstadt (Maxfeld usw.)</td>
+<td>U2/U3</td>
+<td>~12–14 €</td>
+<td>Nord-Zentrum; Mix aus Alt- und Neubau</td>
+</tr>
+<tr>
+<td>Galgenhof</td>
+<td>Tram</td>
+<td>~13 €</td>
+<td>Übergangszone; einzelne preisgünstige Straßen</td>
+</tr>
+<tr>
+<td>Altstadt / Zentrum</td>
+<td>Alle Linien</td>
+<td>14 € +</td>
+<td>Stadtzentrum — überschreitet beide Budgetszenarien</td>
+</tr>
+<tr>
+<td>Mögeldorf / Erlenstegen</td>
+<td>Bus</td>
+<td>16,80 € +</td>
+<td>Östliches Nürnberg, beliebt bei Familien; zu teuer für beide Szenarien</td>
+</tr>
+</tbody>
+</table>
+<h3 id="empfehlungen-fur-szenario-a-600">Empfehlungen für Szenario A (600 €):</h3>
+<p><strong>Langwasser, Röthenbach, Gartenstadt, Steinbühl</strong> — diese vier Stadtteile bieten die besten Chancen im Budget. Alle haben U-Bahn oder direkte Anbindung ans Zentrum.</p>
+<h3 id="empfehlungen-fur-szenario-b-1000">Empfehlungen für Szenario B (1.000 €):</h3>
+<p><strong>Gostenhof, Gartenstadt, Langwasser, Gibitzenhof, Nordstadt</strong> — Ihr Budget lässt echte Auswahl in mehreren attraktiven Stadtteilen zu.</p>
+<h3 id="grunanlagen-fur-haustierhalter-nach-stadtteil">Grünanlagen für Haustierhalter — nach Stadtteil</h3>
+<table>
+<thead>
+<tr>
+<th>Stadtteil</th>
+<th>Nächste Grünanlage</th>
+<th>Qualität</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Langwasser</td>
+<td>Volkspark Langwasser + Weiher (See)</td>
+<td>Ausgezeichnet</td>
+</tr>
+<tr>
+<td>Gostenhof</td>
+<td>Stadtpark (großer Stadtpark, zu Fuß erreichbar)</td>
+<td>Sehr gut</td>
+</tr>
+<tr>
+<td>Gartenstadt</td>
+<td>Nordostpark in der Nähe</td>
+<td>Sehr gut</td>
+</tr>
+<tr>
+<td>Mögeldorf</td>
+<td>Mögeldorfer Weiher</td>
+<td>Ausgezeichnet (aber Preise zu hoch)</td>
+</tr>
+<tr>
+<td>Stadtweit</td>
+<td>Pegnitz-Uferweg</td>
+<td>Von den meisten Stadtteilen erreichbar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="opnv-anbindung-vgn">ÖPNV-Anbindung (VGN)</h3>
+<p>Nürnberg hat 3 U-Bahn-Linien sowie ein dichtes Tram- und Busnetz, betrieben von VGN (https://www.vgn.de/):
+- <strong>U1:</strong> Fürth ↔ Langwasser Süd (durch Hauptbahnhof)
+- <strong>U2:</strong> Röthenbach ↔ Flughafen (durch Hauptbahnhof)
+- <strong>U3:</strong> Nordwestring ↔ Maxfeld (durch Stadtmitte)</p>
+<p>Alle vier empfohlenen Budgetlagen (Langwasser, Röthenbach, Gartenstadt, Gostenhof) haben direkte U-Bahn-Verbindung zur Innenstadt.</p>
+<hr />
+<h2 id="6-haustierfreundliche-wohnungen-ihre-rechte-und-strategie">6. Haustierfreundliche Wohnungen — Ihre Rechte und Strategie</h2>
+<h3 id="das-recht-ist-auf-ihrer-seite">Das Recht ist auf Ihrer Seite</h3>
+<p>Der Bundesgerichtshof (BGH) hat am 20. März 2013 (Az. VIII ZR 168/12) entschieden: Ein <strong>generelles Verbot der Haltung von Hunden und Katzen in Allgemeinen Geschäftsbedingungen (AGB)</strong> eines Mietvertrags ist <strong>unwirksam</strong>. Solche Klauseln im Kleingedruckten sind nicht durchsetzbar.</p>
+<p><strong>Was das bedeutet:</strong>
+- Wenn Ihr Mietvertrag ein Haustierverbot nur im Standardklauselwerk enthält, dürfen Sie Ihr Tier trotzdem halten
+- Wenn der Vermieter eine <strong>individuell ausgehandelte</strong> Klausel eingefügt hat — das ist eher durchsetzbar
+- <strong>Kleintiere</strong> (Hamster, Meerschweinchen, Kaninchen, Fische, kleine Vögel) gelten als vertragsgemäßer Gebrauch — keine Erlaubnis des Vermieters nötig</p>
+<p><strong>Dennoch</strong> können Vermieter verlangen, dass Sie für Hunde oder Katzen <strong>um Erlaubnis bitten</strong> (Erlaubnisklausel). Sie dürfen nur aus konkreten, nachvollziehbaren Gründen ablehnen. Eine grundlose Verweigerung ist anfechtbar.</p>
+<p><strong>Fazit:</strong> Verstecken Sie Ihr Tier nicht. Offenbaren Sie es ehrlich und nutzen Sie die Strategie unten.</p>
+<hr />
+<h3 id="was-haustiere-nach-absprache-bedeutet">Was „Haustiere nach Absprache" bedeutet</h3>
+<p>Diese Formulierung in Inseraten bedeutet, dass der Vermieter <strong>offen für ein Gespräch</strong> ist — kein kategorisches Nein. Bei solchen Angeboten:</p>
+<ol>
+<li>Tierart, Rasse (bei Hund), Alter, Größe/Gewicht genau angeben</li>
+<li>Betonen: gut erzogen, geimpft, ruhig, stubenrein, keine Schäden beim bisherigen Vermieter</li>
+<li><strong>Haftpflichtversicherung</strong> erwähnen — eine Privathaftpflicht deckt in der Regel Tierschäden und beruhigt Vermieter erheblich</li>
+<li>Anbieten, die Erlaubnis schriftlich in den Mietvertrag aufzunehmen</li>
+</ol>
+<hr />
+<h3 id="tierarten-was-vermieter-in-der-praxis-akzeptieren">Tierarten — was Vermieter in der Praxis akzeptieren</h3>
+<table>
+<thead>
+<tr>
+<th>Tierart</th>
+<th>Rechtslage</th>
+<th>Typische Vermieterreaktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fische, Kleinfvögel</td>
+<td>Keine Erlaubnis nötig</td>
+<td>Kein Problem</td>
+</tr>
+<tr>
+<td>Hamster, Meerschweinchen, Kaninchen</td>
+<td>Keine Erlaubnis nötig</td>
+<td>Selten thematisiert</td>
+</tr>
+<tr>
+<td>Wohnungskatze (kastriert)</td>
+<td>Erlaubnis erforderlich, aber kaum zu verweigern</td>
+<td>Meist genehmigbar; „Wohnungskatze, geimpft, kastriert" betonen</td>
+</tr>
+<tr>
+<td>Kleiner/mittlerer Hund (ruhige Rasse)</td>
+<td>Erlaubnis erforderlich</td>
+<td>Leichter mit Rassenangabe + Gewicht; Grünanlagen in der Nähe erwähnen</td>
+</tr>
+<tr>
+<td>Großer oder aktiver Hund</td>
+<td>Erlaubnis erforderlich</td>
+<td>Mehr Widerstand; mit Unterlagen und Referenzen überzeugen</td>
+</tr>
+<tr>
+<td>Exotische Tiere (Reptilien, Frettchen)</td>
+<td>Immer fragen</td>
+<td>Ehrlich offenbaren; manche Vermieter ablehnen</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="ihre-tierdossier-was-sie-zusammenstellen-sollten">Ihre „Tierdossier" — Was Sie zusammenstellen sollten</h3>
+<p>Bereiten Sie eine kurze Mappe vor, die Sie dem Vermieter zeigen oder beifügen:
+- Foto Ihres Tieres (gepflegt, sympathisch — das wirkt wirklich)
+- Impfausweis
+- Bei Hunden: Hundesteuer-Anmeldung; Nachweis, dass die Rasse <strong>nicht</strong> auf Bayerns Kampfhundliste steht
+- Referenzschreiben des bisherigen Vermieters (bestätigt keine Tierschäden)
+- Nachweis Ihrer <strong>Privathaftpflichtversicherung</strong> (mit Deckung für Tierschäden)</p>
+<hr />
+<h3 id="musterabsatz-fur-ihr-anschreiben-tierhaltung">Musterabsatz für Ihr Anschreiben (Tierhaltung)</h3>
+<p>Kopieren Sie diesen Text und passen Sie ihn an:</p>
+<blockquote>
+<p><em>Ich möchte Sie gerne darauf hinweisen, dass ich [eine Katze / einen Hund der Rasse X] halte — [Name], [Alter] Jahre alt, [Rasse, Größe/Gewicht]. [Name] ist [kastriert und geimpft / stubenrein und ruhig]. Tierschäden in der Wohnung sind durch meine Privathaftpflichtversicherung abgedeckt. Ich kann auf Wunsch eine Referenz meines bisherigen Vermieters vorlegen, der bestätigt, dass [Name] nie Schäden verursacht hat. Ich würde die Tierhaltungserlaubnis gerne schriftlich im Mietvertrag festhalten.</em></p>
+</blockquote>
+<hr />
+<h3 id="sollten-sie-ausschlielich-nach-haustiere-erlaubt-filtern">Sollten Sie ausschließlich nach „Haustiere erlaubt" filtern?</h3>
+<p>Nein — nutzen Sie den Filter, aber beschränken Sie sich nicht darauf. Viele Inserate sagen „Haustiere nach Absprache" oder schweigen ganz zum Thema. Privatvermieter auf Kleinanzeigen.de haben oft keine festgelegte Richtlinie und entscheiden individuell. Ein offenes, freundliches Bewerbungsanschreiben mit Tierdossier kann ein neutrales Inserat in ein haustierfreundliches verwandeln.</p>
+<blockquote>
+<p><strong>Wichtig:</strong> Beschreiben Sie Ihr Tier immer wahrheitsgemäß. Eine abweichende Tierart oder -größe kann eine Abmahnung oder Kündigung nach sich ziehen.</p>
+</blockquote>
+<hr />
+<h2 id="7-eine-zweite-person-spater-aufnehmen">7. Eine zweite Person später aufnehmen</h2>
+<p>Diese Situation ist in Deutschland häufig und Ihre Rechte sind gut geschützt.</p>
+<h3 id="kann-eine-partnerinein-partner-in-eine-1-zimmer-wohnung-nachziehen">Kann eine Partnerin/ein Partner in eine 1-Zimmer-Wohnung nachziehen?</h3>
+<p>Ja. Nach <strong>§ 553 BGB</strong> haben Sie das Recht zu beantragen, dass Ihre Partnerin/Ihr Partner in Ihre Wohnung einziehen darf. Eine Lebenspartnerin/ein Lebenspartner gilt als „berechtigtes Interesse" — der Vermieter <strong>muss in der Regel zustimmen</strong>.</p>
+<p>Ablehnen darf der Vermieter nur, wenn:
+- Die Wohnung dadurch <strong>tatsächlich überbelegt</strong> würde (Faustformel: mindestens 1 Zimmer + 9 m² pro Person)
+- Es konkrete, dokumentierte Bedenken zur einziehenden Person gibt</p>
+<p><strong>So gehen Sie vor:</strong>
+1. Schriftliche Anfrage an den Vermieter (E-Mail genügt):</p>
+<blockquote>
+<p><em>„Ich beabsichtige, ab [Datum] meine Lebensgefährtin / meinen Lebensgefährten, [Name], in die Wohnung aufzunehmen. Ich bitte um Ihre Zustimmung gemäß § 553 BGB."</em>
+2. Vollständigen Namen, aktuelle Adresse und Beruf der einziehenden Person angeben
+3. Der Vermieter hat angemessene Zeit für eine Antwort (typischerweise 2–4 Wochen)
+4. Bei grundloser Ablehnung: Mieterbund Nürnberg kontaktieren (siehe Abschnitt 14)</p>
+</blockquote>
+<h3 id="anmeldung-der-zweiten-person">Anmeldung der zweiten Person</h3>
+<p>Ihre Partnerin/Ihr Partner muss sich <strong>innerhalb von 14 Tagen</strong> nach dem Einzug beim Einwohnermeldeamt ummelden. Dafür benötigt sie/er:
+- Personalausweis oder Reisepass
+- <strong>Wohnungsgeberbestätigung</strong> — ein Standardformular, das Sie (als Hauptmieterin) oder der Vermieter ausfüllt und unterschreibt. Fordern Sie dieses Formular sofort beim Vermieter an.
+- Termin beim Bürgeramt: Online buchen unter https://www.nuernberg.de</p>
+<h3 id="wird-der-partner-automatisch-in-den-mietvertrag-aufgenommen">Wird der Partner automatisch in den Mietvertrag aufgenommen?</h3>
+<p>Nein. Als Mitmieter/in im Mietvertrag zu stehen erfordert die Zustimmung des Vermieters. Sie können es beantragen — Mitmieter haben volle eigenständige Mietrechte. Auch ohne Eintrag in den Mietvertrag hat Ihre Partnerin/Ihr Partner das Recht, bei Ihnen zu wohnen, und kann nicht entfernt werden, solange Sie als Hauptmieterin das Mietverhältnis einhalten.</p>
+<h3 id="welche-wohnungsgroe-macht-mehr-sinn">Welche Wohnungsgröße macht mehr Sinn?</h3>
+<p>Wenn es eine realistische Chance gibt, dass Ihr Partner innerhalb von 1–2 Jahren nachzieht, empfiehlt sich <strong>von Anfang an Szenario B (2-Zimmer, 1.000 €)</strong>:
+1. Kein erneuter Umzugsstress
+2. Komfortabler Platz für zwei Personen
+3. Der Vermieter weiß von Anfang an, dass evtl. eine zweite Person einziehen könnte — keine Überraschungen
+4. Es ist deutlich einfacher, in eine 2-Zimmer-Wohnung eine Person nachzumelden als in einer 1-Zimmer-Wohnung eine Überbelegungsausnahme zu argumentieren</p>
+<hr />
+<h2 id="8-erforderliche-unterlagen-und-bewerbungsmappe">8. Erforderliche Unterlagen und Bewerbungsmappe</h2>
+<p>Stellen Sie Ihre <strong>Bewerbungsmappe</strong> als einzelne, übersichtliche PDF-Datei zusammen, bevor Sie mit der Suche beginnen. Vermieter erhalten viele Bewerbungen — eine vollständige, geordnete Mappe hebt Sie sofort positiv ab.</p>
+<h3 id="die-standardbewerbungsmappe">Die Standardbewerbungsmappe</h3>
+<table>
+<thead>
+<tr>
+<th>Unterlage</th>
+<th>Bezeichnung</th>
+<th>Hinweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Personalausweis oder Reisepass</td>
+<td>Personalausweis / Reisepass</td>
+<td>Farbkopie; Original zur Besichtigung mitbringen</td>
+</tr>
+<tr>
+<td>Aufenthaltserlaubnis</td>
+<td>Aufenthaltserlaubnis</td>
+<td>Falls zutreffend; Vorder- und Rückseite</td>
+</tr>
+<tr>
+<td>Mieterselbstauskunft</td>
+<td>Mieterselbstauskunft</td>
+<td>Kostenlose Vorlagen auf IS24 oder beim Mieterbund; vollständig ausfüllen</td>
+</tr>
+<tr>
+<td>Letzte 3 Gehaltsabrechnungen</td>
+<td>Gehaltsabrechnungen</td>
+<td>Wenn gerade erst eingestellt: Arbeitsvertrag reicht aus</td>
+</tr>
+<tr>
+<td>Arbeitsvertrag</td>
+<td>Arbeitsvertrag</td>
+<td>Kopie des unterschriebenen Vertrags</td>
+</tr>
+<tr>
+<td>Arbeitgeberbescheinigung</td>
+<td>Arbeitgeberbescheinigung</td>
+<td>Separates Schreiben auf Firmenbriefkopf (siehe Abschnitt 9)</td>
+</tr>
+<tr>
+<td>SCHUFA-Auskunft</td>
+<td>SCHUFA-BonitätsAuskunft</td>
+<td>Siehe unten</td>
+</tr>
+<tr>
+<td>Kontoauszüge (3 Monate)</td>
+<td>Kontoauszüge</td>
+<td>Deutsches oder ausländisches Konto</td>
+</tr>
+<tr>
+<td>Mietschuldenfreiheitsbescheinigung</td>
+<td>Mietschuldenfreiheitsbescheinigung</td>
+<td>Vom bisherigen Vermieter; ggf. übersetzen lassen</td>
+</tr>
+<tr>
+<td>Vermieterreferenz (optional)</td>
+<td>Vermieterreferenz</td>
+<td>Bestätigt zuverlässige Zahlung und pfleglichen Umgang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="schufa-die-bonitatsauskunft">SCHUFA — die Bonitätsauskunft</h3>
+<p>Die SCHUFA ist Deutschlands wichtigste Wirtschaftsauskunftei. Vermieter erwarten diese Auskunft fast immer.</p>
+<p><strong>Wenn Sie bereits deutsche Einträge haben:</strong>
+- <strong>Kostenlose Jahresauskunft (Datenkopie):</strong> Beantragen unter https://www.schufa.de → „Datenkopie nach Art. 15 DSGVO" — wird per Post zugestellt (1–3 Wochen)
+- <strong>Kostenpflichtige BonitätsAuskunft (29,95 €):</strong> Sofort verfügbar über IS24 — das kompakte Format, das Vermieter bevorzugen</p>
+<p><strong>Wenn Sie neu in Deutschland sind und noch keine SCHUFA-Historie haben:</strong>
+- Ihre Akte existiert möglicherweise nicht oder zeigt minimale Einträge — das ist <strong>nicht dasselbe wie eine schlechte Bewertung</strong>
+- Erklären Sie dies im Anschreiben proaktiv: <em>„Da ich erst kürzlich nach Deutschland gezogen bin, ist meine SCHUFA noch im Aufbau. Meine finanzielle Zuverlässigkeit belege ich durch meinen Arbeitsvertrag und die beiliegenden Kontoauszüge."</em>
+- Ergänzen Sie durch: Arbeitsvertrag + Arbeitgeberbescheinigung + Kontoauszüge mit ausreichendem Puffer (3–6 Monatsmieten)</p>
+<p><strong>SCHUFA schnell aufbauen:</strong>
+1. Deutsches Bankkonto eröffnen (N26 funktioniert online; Sparkasse oder Deutsche Bank erfordern persönlichen Besuch)
+2. SIM-only-Handyvertrag abschließen
+3. Nach 2–3 Monaten SCHUFA-Auskunft anfordern und auf korrekte Einträge prüfen</p>
+<h3 id="reihenfolge-der-pdf-mappe">Reihenfolge der PDF-Mappe</h3>
+<p>Zusammenfassen zu einer Datei namens <code>Bewerbung_[Vorname]_[Nachname].pdf</code>:
+1. Anschreiben
+2. Mieterselbstauskunft (ausgefüllt)
+3. Personalausweis / Aufenthaltserlaubnis
+4. Gehaltsabrechnungen oder Arbeitsvertrag
+5. Arbeitgeberbescheinigung
+6. SCHUFA-Auskunft (oder Erläuterung + Kontoauszüge)
+7. Kontoauszüge
+8. Mietschuldenfreiheitsbescheinigung / Vermieterreferenz</p>
+<p>Datei auf unter 5 MB komprimieren (kostenlos unter https://ilovepdf.com/compress_pdf).</p>
+<hr />
+<h2 id="9-die-arbeitgeberbescheinigung-wie-sie-sie-erhalten">9. Die Arbeitgeberbescheinigung — Wie Sie sie erhalten</h2>
+<h3 id="was-ist-das-und-warum-ist-es-wichtig">Was ist das und warum ist es wichtig?</h3>
+<p>Eine <strong>Arbeitgeberbescheinigung</strong> ist ein unterschriebenes Schreiben Ihres Arbeitgebers auf dessen offiziellem Firmenbriefkopf, das Ihre Anstellung bestätigt. Es ist eines der wichtigsten Dokumente bei der Wohnungsbewerbung in Deutschland — besonders wenn:
+- Sie gerade erst angefangen haben zu arbeiten und noch keine 3 Gehaltsabrechnungen haben
+- Ihre SCHUFA-Historie lückenhaft ist (als Neuankömmling)
+- Sie sich als zuverlässige Mieterin von anderen Bewerbenden abheben möchten</p>
+<p>Dieses Schreiben stellt <strong>Ihr direkter Arbeitgeber</strong> aus — also das Unternehmen, in dem Sie tatsächlich arbeiten. Wenden Sie sich an die Personalabteilung oder Ihre direkte Führungskraft.</p>
+<p>Die meisten deutschen Arbeitgeber kennen diese Anfrage — sie ist völlig normal.</p>
+<hr />
+<h3 id="so-sprechen-sie-ihren-arbeitgeber-an">So sprechen Sie Ihren Arbeitgeber an</h3>
+<p>Eine einfache E-Mail oder mündliche Anfrage genügt:</p>
+<blockquote>
+<p><em>„Hallo [Name], ich bin gerade auf Wohnungssuche in Nürnberg und benötige eine Arbeitgeberbescheinigung für meinen Vermieter. Könnten Sie mir bitte ein kurzes Schreiben auf Firmenbriefkopf ausstellen, das meine Stelle, mein Eintrittsdatum und mein Gehalt bestätigt? Ich füge eine Vorlage bei, falls das hilfreich ist."</em></p>
+</blockquote>
+<p>Die meisten Personalabteilungen stellen dieses Dokument innerhalb von 1–3 Werktagen aus.</p>
+<hr />
+<h3 id="druckfertige-vorlage-zum-weitergeben">Druckfertige Vorlage zum Weitergeben</h3>
+<p>Die vollständige, druckfertige Vorlage für Ihre Arbeitgeberin / Ihren Arbeitgeber finden Sie als separate Anlage zu diesem Ratgeber:</p>
+<p><strong>→ Anlage: <code>Arbeitgeberbescheinigung_Vorlage.pdf</code></strong></p>
+<p>Die Vorlage enthält:
+- Vollständiges zweisprachiges Formular (Deutsch / Englisch)
+- Alle erforderlichen Felder mit klaren Ausfüllanweisungen
+- Unterschriftszeilen für Arbeitgeber und Arbeitnehmer
+- Feld für den Firmenstempel
+- Erläuterung, wofür das Dokument verwendet wird</p>
+<p>Drucken Sie die Vorlage aus und geben Sie sie Ihrer Personalabteilung oder Führungskraft — sie können das Formular direkt ausfüllen, unterzeichnen und stempeln.</p>
+<hr />
+<h3 id="was-die-bescheinigung-enthalten-muss">Was die Bescheinigung enthalten muss</h3>
+<table>
+<thead>
+<tr>
+<th>Angabe</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vollständiger Name</td>
+<td>Ihrer</td>
+</tr>
+<tr>
+<td>Geburtsdatum</td>
+<td>Optional, aber hilfreich</td>
+</tr>
+<tr>
+<td>Art des Arbeitsverhältnisses</td>
+<td>Unbefristet oder befristet</td>
+</tr>
+<tr>
+<td>Beschäftigt seit</td>
+<td>Eintrittsdatum</td>
+</tr>
+<tr>
+<td>Berufsbezeichnung</td>
+<td>Ihre Position</td>
+</tr>
+<tr>
+<td>Vollzeit oder Teilzeit</td>
+<td>Stundenumfang</td>
+</tr>
+<tr>
+<td>Bruttomonatsgehalt</td>
+<td>Angabe in Euro</td>
+</tr>
+<tr>
+<td>Nettomonatsgehalt (ca.)</td>
+<td>Angabe in Euro</td>
+</tr>
+<tr>
+<td>Firmenbriefkopf</td>
+<td>Mit Firmenname, Adresse, Registerdaten</td>
+</tr>
+<tr>
+<td>Unterschrift</td>
+<td>Personalverantwortliche Person</td>
+</tr>
+<tr>
+<td>Firmenstempel</td>
+<td>Wenn vorhanden — stärkt das Dokument erheblich</td>
+</tr>
+<tr>
+<td>Kontakt für Rückfragen</td>
+<td>Name und E-Mail der unterzeichnenden Person</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-beratungsstellen-und-unterstutzung-in-nurnberg">10. Beratungsstellen und Unterstützung in Nürnberg</h2>
+<h3 id="welcome-service-nurnberg-erste-anlaufstelle-fur-internationale">Welcome Service Nürnberg <em>(Erste Anlaufstelle für Internationale)</em></h3>
+<ul>
+<li><strong>Telefon:</strong> 0911 / 231-47 47</li>
+<li><strong>Website:</strong> https://www.nuernberg.de/internet/wirtschaft/welcome_service_center.html</li>
+<li>Kostenlose Beratung zu Wohnungssuche, Behördengängen, Arbeitsmarkt für internationale Fachkräfte</li>
+</ul>
+<h3 id="zam-zentrale-anlaufstelle-migration-zentrale-beratung-fur-zugewanderte">ZAM — Zentrale Anlaufstelle Migration <em>(Zentrale Beratung für Zugewanderte)</em></h3>
+<ul>
+<li><strong>Adresse:</strong> Theresienstraße 18, EG, 90403 Nürnberg</li>
+<li><strong>Telefon:</strong> 0911 / 231-39215</li>
+<li><strong>Öffnungszeiten:</strong> Montag–Freitag, 08:30–12:30 Uhr (auch nach Vereinbarung)</li>
+<li><strong>Website:</strong> https://www.nuernberg.de/internet/integration/zambe.html</li>
+<li>Erste Anlaufstelle für alle Zugewanderten; Weitervermittlung an Fach- und Beratungsdienste für Wohnen, Recht, Soziales</li>
+</ul>
+<h3 id="caritas-nurnberg-migrations-und-integrationsberatung">Caritas Nürnberg — Migrations- und Integrationsberatung</h3>
+<ul>
+<li><strong>Adresse:</strong> Tucherstraße 15, 90403 Nürnberg</li>
+<li><strong>Telefon:</strong> 0911 / 23 54 200</li>
+<li><strong>E-Mail:</strong> migrationsberatung@caritas-nuernberg.de</li>
+<li><strong>Öffnungszeiten:</strong> Mo–Fr, 09:00–12:00 Uhr (und nach Vereinbarung)</li>
+<li><strong>Sprachen:</strong> Deutsch, Englisch, Kroatisch, Bosnisch, Serbisch, Italienisch, Spanisch, Russisch</li>
+<li>Leistungen: Wohnungssuche, Behördenbegleitung, Rechtsfragen zum Aufenthalt, Krisenunterstützung</li>
+<li>Zweigstelle: Kulturladen Röthenbach, Röthenbacher Hauptstraße 74, 90449 Nürnberg</li>
+</ul>
+<h3 id="awo-nurnberg-migrationsberatung-mbe">AWO Nürnberg — Migrationsberatung (MBE)</h3>
+<ul>
+<li><strong>Adresse:</strong> Gartenstraße 9, 90443 Nürnberg</li>
+<li><strong>Website:</strong> https://www.awo-nuernberg.de/einrichtungen/migration-und-integration/migrationsberatung-fuer-erwachsene-zugewanderte-mbe/</li>
+</ul>
+<h3 id="mieterbund-nurnberg-ihr-anwalt-als-mieterin-sehr-wichtig">Mieterbund Nürnberg — Ihr Anwalt als Mieterin <em>(Sehr wichtig)</em></h3>
+<p>Wenn Sie Streit mit dem Vermieter haben — wegen Haustieren, Kautionsrückgabe, Nebenkostenabrechnung oder anderem — ist der Mieterbund Ihre erste Anlaufstelle. Der Jahresbeitrag (ca. 80–100 €) gibt Ihnen unbegrenzte kostenlose Rechtsberatung zu allen Mietangelegenheiten.</p>
+<ul>
+<li><strong>Adresse:</strong> Schlehengasse 10, 90402 Nürnberg</li>
+<li><strong>Telefon:</strong> 0911 / 376518-0 oder 0911 / 376518-19</li>
+<li><strong>E-Mail:</strong> info@mieterbund-nuernberg.de</li>
+<li><strong>Öffnungszeiten:</strong> Mo 08–17 Uhr; Di–Do 08–12:30 &amp; 14–17 Uhr; Fr 08–12:30 Uhr</li>
+<li><strong>Website:</strong> https://www.mieterbund-nuernberg.de</li>
+</ul>
+<h3 id="sozialamt-wbs-und-sozialwohnungen">Sozialamt — WBS und Sozialwohnungen</h3>
+<ul>
+<li><strong>Adresse:</strong> Marienstraße 6, 90402 Nürnberg</li>
+<li><strong>Telefon:</strong> 0911 / 231-2195</li>
+<li><strong>E-Mail:</strong> wohnungsvermittlung@stadt.nuernberg.de</li>
+<li><strong>Website:</strong> https://www.nuernberg.de/internet/sozialamt_nbg/wohnungsvermittlung.html</li>
+</ul>
+<hr />
+<h2 id="11-versteckte-kosten-und-was-sie-einplanen-sollten">11. Versteckte Kosten und was Sie einplanen sollten</h2>
+<h3 id="einmalige-kosten-beim-einzug">Einmalige Kosten beim Einzug</h3>
+<table>
+<thead>
+<tr>
+<th>Kostenart</th>
+<th>Betrag</th>
+<th>Hinweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mietkaution</strong></td>
+<td>Bis zu 3 Monatsmieten (Kaltmiete)</td>
+<td>Gesetzliches Maximum; wird bei Auszug zurückgezahlt (abzgl. etwaiger Schäden)</td>
+</tr>
+<tr>
+<td><strong>Einbauküche</strong></td>
+<td>0–2.000 €</td>
+<td>Deutsche Wohnungen werden oft ohne Küche vermietet — beim Vormieter nachfragen oder auf Kleinanzeigen suchen</td>
+</tr>
+<tr>
+<td><strong>Umzugskosten</strong></td>
+<td>300–1.500 € +</td>
+<td>Selbst mit gemietem Transporter oder professioneller Umzugsfirma</td>
+</tr>
+<tr>
+<td><strong>Besichtigungsfahrten</strong></td>
+<td>Variabel</td>
+<td>Reisen nach Nürnberg für persönliche Besichtigungen</td>
+</tr>
+<tr>
+<td><strong>SCHUFA-BonitätsAuskunft</strong></td>
+<td>29,95 €</td>
+<td>Wenn Sie die sofortige kostenpflichtige Variante nutzen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="laufende-kosten-zusatzlich-zur-miete">Laufende Kosten zusätzlich zur Miete</h3>
+<table>
+<thead>
+<tr>
+<th>Kostenart</th>
+<th>Typischer Betrag/Monat</th>
+<th>Hinweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strom</strong></td>
+<td>30–80 €</td>
+<td>Nicht in den Nebenkosten enthalten; eigenen Vertrag abschließen (Stadtwerke Nürnberg oder Vergleich über Verivox.de)</td>
+</tr>
+<tr>
+<td><strong>Internet</strong></td>
+<td>25–50 €</td>
+<td>Eigenen Vertrag abschließen; Glasfaser in großen Teilen Nürnbergs verfügbar</td>
+</tr>
+<tr>
+<td><strong>Rundfunkbeitrag (GEZ)</strong></td>
+<td>18,36 €</td>
+<td>Pflichtabgabe pro Haushalt; einmal pro Wohneinheit</td>
+</tr>
+<tr>
+<td><strong>Hausratversicherung</strong></td>
+<td>5–15 €</td>
+<td>Sehr empfohlen; deckt Einbruch, Wasserschäden, Brand</td>
+</tr>
+<tr>
+<td><strong>Privathaftpflichtversicherung</strong></td>
+<td>5–10 €</td>
+<td>Unverzichtbar; deckt Schäden, die Sie anderen zufügen — einschließlich Tierschäden</td>
+</tr>
+<tr>
+<td><strong>Hundesteuer</strong></td>
+<td>75–140 € / Jahr</td>
+<td>Bei Hundehaltung Pflicht in Nürnberg; Anmeldung bei der Stadt</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jahrliche-nebenkostenabrechnung">Jährliche Nebenkostenabrechnung</h3>
+<p>Nach dem ersten vollen Mietjahr erhalten Sie die <strong>Nebenkostenabrechnung</strong>. Wenn die tatsächlichen Kosten höher waren als Ihre monatlichen Vorauszahlungen, zahlen Sie die Differenz nach — und umgekehrt. Typische Abweichung: 50–300 € pro Jahr. Halten Sie entsprechende Rücklagen bereit.</p>
+<hr />
+<h2 id="12-haufige-fehler-und-wie-sie-sie-vermeiden">12. Häufige Fehler und wie Sie sie vermeiden</h2>
+<table>
+<thead>
+<tr>
+<th>Fehler</th>
+<th>Risiko</th>
+<th>So vermeiden Sie ihn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tier verschweigen</strong></td>
+<td>Abmahnung, Kündigung oder Rechtsstreit</td>
+<td>Immer ehrlich offenbaren — das Recht ist auf Ihrer Seite</td>
+</tr>
+<tr>
+<td><strong>Kaution vor Vertragsunterzeichnung zahlen</strong></td>
+<td>Betrug — Geld verloren ohne Absicherung</td>
+<td>Niemals zahlen ohne unterschriebenen Mietvertrag</td>
+</tr>
+<tr>
+<td><strong>Mündliche Vereinbarungen akzeptieren</strong></td>
+<td>In der Praxis kaum durchsetzbar</td>
+<td>Alles schriftlich im Mietvertrag festhalten</td>
+</tr>
+<tr>
+<td><strong>14-Tage-Anmeldefrist verpassen</strong></td>
+<td>Rechtliche Probleme; verzögert Aufenthaltserlaubnis und Bankkonto</td>
+<td>Innerhalb von 14 Tagen beim Einwohnermeldeamt anmelden</td>
+</tr>
+<tr>
+<td><strong>Keine Wohnungsgeberbestätigung anfordern</strong></td>
+<td>Anmeldung nicht möglich</td>
+<td>Am ersten Tag beim Vermieter anfordern</td>
+</tr>
+<tr>
+<td><strong>Miete verhandeln wollen</strong></td>
+<td>Im angespannten Markt kaum möglich</td>
+<td>Verhandeln Sie lieber über Einzugstermin, Kaution, Tiererlaubnis</td>
+</tr>
+<tr>
+<td><strong>Illegale Untermiete (Schwarzuntermiete)</strong></td>
+<td>Kündigung bei Entdeckung</td>
+<td>Prüfen, ob Hauptmieter schriftliche Erlaubnis des Vermieters hat</td>
+</tr>
+<tr>
+<td><strong>Küchensituation unterschätzen</strong></td>
+<td>Unerwartete Kosten 500–2.000 €</td>
+<td>Explizit fragen: „Ist eine Einbauküche vorhanden?"</td>
+</tr>
+<tr>
+<td><strong>Pauschalverbote für Tiere für bindend halten</strong></td>
+<td>Mögliche Optionen verpasst</td>
+<td>Rechtslage kennen (Abschnitt 6), verhandeln</td>
+</tr>
+<tr>
+<td><strong>Kaution nicht einkalkuliert</strong></td>
+<td>Liquiditätsproblem beim Einzug</td>
+<td>3 Monatsmieten (kalt) als Rücklage einplanen</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="13-ihre-prioritatenliste-was-sie-wann-tun-sollten">13. Ihre Prioritätenliste — Was Sie wann tun sollten</h2>
+<p><strong>Sofort erledigen — unabhängig vom Zeitplan:</strong></p>
+<ul>
+<li>[ ] Deutsches Bankkonto eröffnen (N26 funktioniert online ohne deutsche Adresse; Sparkasse/Deutsche Bank erfordern persönlichen Besuch)</li>
+<li>[ ] Kostenlose SCHUFA-Datenkopie beantragen unter https://www.schufa.de</li>
+<li>[ ] Mieterselbstauskunft herunterladen und ausfüllen (Vorlage auf IS24 oder beim Mieterbund)</li>
+<li>[ ] IS24-Push-Benachrichtigungen für Nürnberg mit Budget- und Haustierfilter aktivieren</li>
+<li>[ ] WBS-Antrag beim Sozialamt Nürnberg stellen, Marienstraße 6 (kostenlos, erschließt Sozialwohnungen)</li>
+<li>[ ] Genossenschaftsmitgliedschaft bei WG NORIS eG beantragen — Warteliste läuft parallel zur Suche</li>
+</ul>
+<p><strong>Diese Woche:</strong></p>
+<ul>
+<li>[ ] Arbeitgeberin/Arbeitgeber um Arbeitgeberbescheinigung bitten (Vorlage beifügen — Anlage zu diesem Ratgeber)</li>
+<li>[ ] Eigenes Wohnungsgesuch in allen 5 Facebook-Gruppen aus Abschnitt 3 aufgeben</li>
+<li>[ ] Gesuch auf WG-Gesucht unter „Zimmer/Wohnung gesucht" schalten</li>
+<li>[ ] Kleinanzeigen.de täglich mit Stichwort „Haustiere willkommen" in Nürnberg prüfen</li>
+<li>[ ] ZAM Nürnberg kontaktieren (0911 / 231-39215) für persönliche Wohnberatung</li>
+</ul>
+<p><strong>Wenn alle Unterlagen bereit sind:</strong></p>
+<ul>
+<li>[ ] Vollständige Bewerbungsmappe als PDF zusammenstellen (Reihenfolge aus Abschnitt 8)</li>
+<li>[ ] wbg Nürnberg wegen freier und WBS-geförderter Wohnungen kontaktieren</li>
+<li>[ ] SWN Nürnberg wegen aktueller Angebote kontaktieren</li>
+<li>[ ] Interessante Inserate noch am selben Tag beantworten — Schnelligkeit entscheidet</li>
+</ul>
+<p><strong>Bester Suchzeitraum:</strong></p>
+<p>März–Mai ist der Hauptangebotszeitraum auf dem deutschen Wohnungsmarkt — in dieser Zeit kommen die meisten Neuinserate auf den Markt. Nutzen Sie dieses Zeitfenster aktiv.</p>
+<hr />
+<h2 id="14-wichtige-kontakte-auf-einen-blick">14. Wichtige Kontakte auf einen Blick</h2>
+<h3 id="online-portale">Online-Portale</h3>
+<table>
+<thead>
+<tr>
+<th>Angebot</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IS24 — alle Nürnberger Wohnungen</td>
+<td>https://www.immobilienscout24.de/Suche/de/bayern/nuernberg/wohnung-mieten</td>
+</tr>
+<tr>
+<td>IS24 — 1-Zimmer</td>
+<td>https://www.immobilienscout24.de/Suche/de/bayern/nuernberg/1-zimmer-wohnung-mieten</td>
+</tr>
+<tr>
+<td>Immowelt</td>
+<td>https://www.immowelt.de/suche/nuernberg/wohnungen/mieten</td>
+</tr>
+<tr>
+<td>Immonet bis 600 €</td>
+<td>https://www.immonet.de/bayern/nuernberg-wohnung-bis-600-euro.html</td>
+</tr>
+<tr>
+<td>Immonet bis 1.000 €</td>
+<td>https://www.immonet.de/bayern/nuernberg-wohnung-bis-1000-euro.html</td>
+</tr>
+<tr>
+<td>Kleinanzeigen.de</td>
+<td>https://www.kleinanzeigen.de/s-wohnung-mieten/nuernberg/c203l5718</td>
+</tr>
+<tr>
+<td>wbg Wohnungssuche</td>
+<td>https://wbg.nuernberg.de/de/mieten/wohnungen/wohnungssuche</td>
+</tr>
+<tr>
+<td>SWN Angebote</td>
+<td>https://swnuernberg.de/wohnungsangebote/</td>
+</tr>
+<tr>
+<td>WG NORIS Genossenschaft</td>
+<td>https://wgnoris.de/wohnungssuche/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="behorden-und-offizielle-stellen">Behörden und offizielle Stellen</h3>
+<table>
+<thead>
+<tr>
+<th>Einrichtung</th>
+<th>Telefon</th>
+<th>E-Mail</th>
+<th>Website</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Welcome Service Nürnberg</td>
+<td>0911 / 231-4747</td>
+<td>—</td>
+<td>nuernberg.de/internet/wirtschaft/welcome_service_center.html</td>
+</tr>
+<tr>
+<td>ZAM — Zentrale Anlaufstelle Migration</td>
+<td>0911 / 231-39215</td>
+<td>—</td>
+<td>nuernberg.de/internet/integration/zambe.html</td>
+</tr>
+<tr>
+<td>Sozialamt / WBS-Antrag</td>
+<td>0911 / 231-2195</td>
+<td>wohnungsvermittlung@stadt.nuernberg.de</td>
+<td>nuernberg.de/internet/sozialamt_nbg/wohnungsvermittlung.html</td>
+</tr>
+<tr>
+<td>Mieterbund Nürnberg</td>
+<td>0911 / 376518-0</td>
+<td>info@mieterbund-nuernberg.de</td>
+<td>mieterbund-nuernberg.de</td>
+</tr>
+<tr>
+<td>Caritas Migrationsberatung</td>
+<td>0911 / 23 54 200</td>
+<td>migrationsberatung@caritas-nuernberg.de</td>
+<td>caritas-nuernberg.de</td>
+</tr>
+<tr>
+<td>AWO Nürnberg</td>
+<td>—</td>
+<td>—</td>
+<td>awo-nuernberg.de</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wohnungsanbieter-und-genossenschaften">Wohnungsanbieter und Genossenschaften</h3>
+<table>
+<thead>
+<tr>
+<th>Einrichtung</th>
+<th>Telefon</th>
+<th>Website</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wbg Nürnberg</td>
+<td>0911 / 8004-0</td>
+<td>wbg.nuernberg.de</td>
+</tr>
+<tr>
+<td>Siedlungswerk Nürnberg (SWN)</td>
+<td>—</td>
+<td>swnuernberg.de</td>
+</tr>
+<tr>
+<td>WG NORIS eG</td>
+<td>0911 / 94965-0</td>
+<td>wgnoris.de</td>
+</tr>
+<tr>
+<td>WG Nürnberg-Nord eG</td>
+<td>—</td>
+<td>wg-nuernberg-nord.de</td>
+</tr>
+<tr>
+<td>WG Nürnberg Süd-Ost eG</td>
+<td>—</td>
+<td>wg-nbg-sued-ost.de</td>
+</tr>
+<tr>
+<td>BGSN Gruppe</td>
+<td>—</td>
+<td>bgsn.de</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nutzliche-werkzeuge">Nützliche Werkzeuge</h3>
+<table>
+<thead>
+<tr>
+<th>Angebot</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCHUFA kostenlose Jahresauskunft</td>
+<td>https://www.schufa.de</td>
+</tr>
+<tr>
+<td>SCHUFA kostenpflichtige BonitätsAuskunft</td>
+<td>Über IS24-Plattform</td>
+</tr>
+<tr>
+<td>VGN ÖPNV Nürnberg</td>
+<td>https://www.vgn.de/</td>
+</tr>
+<tr>
+<td>Verivox Strompreisvergleich</td>
+<td>https://www.verivox.de</td>
+</tr>
+<tr>
+<td>ilovepdf (PDF komprimieren)</td>
+<td>https://ilovepdf.com/compress_pdf</td>
+</tr>
+<tr>
+<td>Offizieller Mietspiegel Nürnberg</td>
+<td>https://www.nuernberg.de/internet/wohnen/mietenspiegel.html</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Recherche: März 2026. Bitte Kontaktdaten vor der Kontaktaufnahme überprüfen — Preise, Verfügbarkeiten und Öffnungszeiten können sich ändern. Dieser Ratgeber dient der Information und ersetzt keine Rechtsberatung. Bei rechtlichen Fragen: Mieterbund Nürnberg konsultieren.</em></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Arbeitgeberbescheinigung — Vorlage</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 18mm 18mm 18mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+      font-size: 10pt;
+      color: #1a1a1a;
+      line-height: 1.5;
+      background: white;
+    }
+
+    /* ── TOP INSTRUCTION BANNER ── */
+    .instructions-banner {
+      background: #f0f4ff;
+      border: 1.5px solid #3b5de7;
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      font-size: 8.5pt;
+      color: #1a2f8f;
+    }
+
+    .instructions-banner strong {
+      font-size: 9pt;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .instructions-banner ul {
+      margin-left: 14px;
+    }
+
+    .instructions-banner li {
+      margin-bottom: 2px;
+    }
+
+    /* ── DOCUMENT HEADER ── */
+    .doc-header {
+      border: 2px solid #1a1a1a;
+      padding: 14px 16px 10px 16px;
+      margin-bottom: 14px;
+    }
+
+    .doc-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .doc-title-block {
+      flex: 1;
+    }
+
+    .doc-title {
+      font-size: 16pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #0a0a0a;
+      line-height: 1.2;
+    }
+
+    .doc-subtitle {
+      font-size: 8.5pt;
+      color: #555;
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    .doc-purpose {
+      font-size: 8pt;
+      margin-top: 8px;
+      color: #333;
+      background: #fafafa;
+      border-left: 3px solid #3b5de7;
+      padding: 5px 8px;
+    }
+
+    .stamp-box {
+      flex-shrink: 0;
+      width: 130px;
+      height: 90px;
+      border: 1.5px dashed #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #aaa;
+      font-size: 7.5pt;
+      padding: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      background: #1a1a1a;
+      color: white;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      margin-bottom: 0;
+    }
+
+    .section-body {
+      border: 1.5px solid #1a1a1a;
+      border-top: none;
+      padding: 10px 12px;
+    }
+
+    /* ── FIELD ROWS ── */
+    .field-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 10px;
+      align-items: flex-end;
+    }
+
+    .field-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .field {
+      flex: 1;
+    }
+
+    .field.narrow {
+      flex: 0.5;
+    }
+
+    .field.wide {
+      flex: 2;
+    }
+
+    .field-label {
+      font-size: 7.5pt;
+      color: #555;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 3px;
+    }
+
+    .field-line {
+      border-bottom: 1.5px solid #333;
+      min-height: 20px;
+      width: 100%;
+    }
+
+    .field-hint {
+      font-size: 6.5pt;
+      color: #888;
+      margin-top: 2px;
+      font-style: italic;
+    }
+
+    /* ── CHECKBOX FIELDS ── */
+    .checkbox-group {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9pt;
+    }
+
+    .checkbox-square {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #333;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    /* ── SALARY TABLE ── */
+    .salary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2px;
+    }
+
+    .salary-table td {
+      padding: 5px 8px;
+      border: 1px solid #ccc;
+      font-size: 9pt;
+      vertical-align: bottom;
+    }
+
+    .salary-table td:first-child {
+      width: 55%;
+      font-size: 8pt;
+      color: #444;
+      background: #fafafa;
+    }
+
+    .salary-table td:last-child {
+      font-weight: 600;
+      font-size: 11pt;
+    }
+
+    .salary-line {
+      border-bottom: 1.5px solid #333;
+      display: block;
+      min-height: 22px;
+      padding-bottom: 2px;
+    }
+
+    /* ── DECLARATION BOX ── */
+    .declaration-box {
+      border: 1.5px solid #1a1a1a;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      font-size: 9pt;
+      line-height: 1.7;
+      background: #fdfdf8;
+    }
+
+    .declaration-box .placeholder {
+      display: inline-block;
+      min-width: 120px;
+      border-bottom: 1.5px solid #333;
+      vertical-align: bottom;
+      height: 18px;
+      margin: 0 3px;
+    }
+
+    .declaration-box .placeholder.short {
+      min-width: 60px;
+    }
+
+    .declaration-box .placeholder.medium {
+      min-width: 90px;
+    }
+
+    /* ── SIGNATURE BLOCK ── */
+    .signature-block {
+      margin-bottom: 10px;
+    }
+
+    .sig-section-title {
+      background: #1a1a1a;
+      color: white;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      margin-bottom: 0;
+    }
+
+    .sig-grid {
+      display: flex;
+      gap: 0;
+      border: 1.5px solid #1a1a1a;
+      border-top: none;
+    }
+
+    .sig-col {
+      flex: 1;
+      padding: 12px 14px;
+    }
+
+    .sig-col:first-child {
+      border-right: 1px solid #ccc;
+    }
+
+    .sig-col-label {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #444;
+      letter-spacing: 0.3px;
+      margin-bottom: 6px;
+    }
+
+    .sig-line-group {
+      margin-bottom: 8px;
+    }
+
+    .sig-line {
+      border-bottom: 1.5px solid #333;
+      min-height: 22px;
+      margin-bottom: 3px;
+    }
+
+    .sig-line-label {
+      font-size: 7pt;
+      color: #888;
+      font-style: italic;
+    }
+
+    .sig-box-area {
+      margin-top: 10px;
+    }
+
+    .sig-draw-area {
+      border: 1.5px solid #333;
+      height: 55px;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding: 4px 6px;
+    }
+
+    .sig-draw-label {
+      font-size: 7pt;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      font-size: 7.5pt;
+      color: #777;
+      border-top: 1px solid #ddd;
+      padding-top: 8px;
+      margin-top: 10px;
+      line-height: 1.5;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ── PRINT ONLY: hide instruction banner ── */
+    @media print {
+      .instructions-banner {
+        display: none;
+      }
+      body {
+        font-size: 9.5pt;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SCREEN-ONLY INSTRUCTIONS -->
+  <div class="instructions-banner">
+    <strong>Ausfüllanleitung / Filling instructions:</strong>
+    <ul>
+      <li><strong>Arbeitgeber</strong> füllt alle Felder in den Abschnitten 1–3 aus, unterzeichnet und stempelt im Abschnitt „Unterschriften".</li>
+      <li><strong>Arbeitnehmer/in</strong> unterzeichnet ebenfalls im Abschnitt „Unterschriften" (Bestätigung der Richtigkeit).</li>
+      <li>Drucken Sie dieses Formular aus und geben Sie es Ihrer Personalabteilung oder Führungskraft — es kann direkt ausgefüllt werden.</li>
+      <li><em>Employer fills all fields in sections 1–3, signs and stamps in the "Signatures" section. Employee also signs to confirm accuracy.</em></li>
+    </ul>
+  </div>
+
+  <!-- DOCUMENT HEADER -->
+  <div class="doc-header">
+    <div class="doc-header-top">
+      <div class="doc-title-block">
+        <div class="doc-title">Arbeitgeberbescheinigung</div>
+        <div class="doc-subtitle">Employer Confirmation Letter</div>
+        <div class="doc-purpose">
+          Dieses Dokument dient als Nachweis der Beschäftigung und des Einkommens
+          im Rahmen einer Wohnungsbewerbung. Es ersetzt oder ergänzt die SCHUFA-Auskunft
+          für Mieter, die sich neu in Deutschland etablieren.<br>
+          <em>This document serves as proof of employment and income for a residential rental application.</em>
+        </div>
+      </div>
+      <div class="stamp-box">
+        Firmenstempel<br>
+        Company Stamp<br>
+        <br>
+        (hier stempeln /<br>
+        stamp here)
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 1: EMPLOYER -->
+  <div class="section">
+    <div class="section-title">1 &nbsp;|&nbsp; Angaben zum Arbeitgeber &nbsp;/&nbsp; Employer Details</div>
+    <div class="section-body">
+
+      <div class="field-row">
+        <div class="field wide">
+          <div class="field-label">Firmenname / Company Name</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field narrow">
+          <div class="field-label">Datum / Date (TT.MM.JJJJ)</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field wide">
+          <div class="field-label">Straße und Hausnummer / Street &amp; Number</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field narrow">
+          <div class="field-label">PLZ / Postal Code</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Stadt / City</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Telefon / Phone</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">E-Mail</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Handelsregisternummer / Company Reg. No. (HRB / HR-Nr.)</div>
+          <div class="field-line"></div>
+          <div class="field-hint">z. B. HRB 12345, Amtsgericht Nürnberg</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Ansprechpartner HR / HR Contact Person</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- SECTION 2: EMPLOYEE -->
+  <div class="section">
+    <div class="section-title">2 &nbsp;|&nbsp; Angaben zur/zum Beschäftigten &nbsp;/&nbsp; Employee Details</div>
+    <div class="section-body">
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Nachname / Last Name</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Vorname / First Name</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field narrow">
+          <div class="field-label">Geburtsdatum / Date of Birth</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Staatsangehörigkeit / Nationality</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field wide">
+          <div class="field-label">Aufenthaltstitel / Residence Permit (Art &amp; gültig bis / valid until)</div>
+          <div class="field-line"></div>
+          <div class="field-hint">z. B. Aufenthaltserlaubnis § 18a AufenthG, gültig bis 31.12.2026</div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field wide">
+          <div class="field-label">Wohnanschrift (aktuell) / Current Residential Address</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field narrow">
+          <div class="field-label">PLZ &amp; Stadt</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- SECTION 3: EMPLOYMENT & SALARY -->
+  <div class="section">
+    <div class="section-title">3 &nbsp;|&nbsp; Beschäftigungsverhältnis &amp; Gehalt &nbsp;/&nbsp; Employment &amp; Salary</div>
+    <div class="section-body">
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Beschäftigt seit / Employed since (TT.MM.JJJJ)</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Arbeitsort / Place of Work</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Position / Job Title</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Art des Vertrags / Contract Type</div>
+          <div class="checkbox-group">
+            <label class="checkbox-option">
+              <span class="checkbox-square"></span>
+              Unbefristet / Permanent
+            </label>
+            <label class="checkbox-option">
+              <span class="checkbox-square"></span>
+              Befristet bis / Fixed-term until:
+            </label>
+          </div>
+        </div>
+        <div class="field narrow">
+          <div class="field-label">Datum bei Befristung / End date if applicable</div>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Beschäftigungsumfang / Employment Scope</div>
+          <div class="checkbox-group">
+            <label class="checkbox-option">
+              <span class="checkbox-square"></span>
+              Vollzeit / Full-time
+            </label>
+            <label class="checkbox-option">
+              <span class="checkbox-square"></span>
+              Teilzeit / Part-time
+            </label>
+            <label class="checkbox-option">
+              <span class="checkbox-square"></span>
+              Ausbildung / Apprenticeship
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row" style="margin-top: 6px;">
+        <div class="field" style="flex: 2;">
+          <div class="field-label">Monatliches Gehalt / Monthly Salary</div>
+          <table class="salary-table">
+            <tr>
+              <td>Brutto-Monatsgehalt / Gross monthly salary:</td>
+              <td><span class="salary-line"></span></td>
+            </tr>
+            <tr>
+              <td>Netto-Monatsgehalt (ca.) / Net monthly salary (approx.):</td>
+              <td><span class="salary-line"></span></td>
+            </tr>
+          </table>
+          <div class="field-hint" style="margin-top:4px;">Alle Beträge in Euro / All amounts in EUR</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Probezeit / Probationary period</div>
+          <div class="checkbox-group">
+            <label class="checkbox-option">
+              <span class="checkbox-square"></span>
+              Ja / Yes, bis / until:
+            </label>
+          </div>
+          <div class="field-line" style="margin-top:8px;"></div>
+          <div class="checkbox-group" style="margin-top:8px;">
+            <label class="checkbox-option">
+              <span class="checkbox-square"></span>
+              Nein / No
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- DECLARATION -->
+  <div class="section">
+    <div class="section-title">Bestätigung des Arbeitgebers &nbsp;/&nbsp; Employer Declaration</div>
+    <div class="declaration-box">
+      Wir bestätigen hiermit, dass
+      <span class="placeholder"></span>
+      (Vorname Nachname / First Last Name)
+      seit dem
+      <span class="placeholder short"></span>
+      in einem
+      <span class="placeholder medium"></span>
+      (unbefristeten / befristeten)
+      Arbeitsverhältnis bei
+      <span class="placeholder"></span>
+      (Firmenname / Company Name)
+      beschäftigt ist.
+      Die oben genannten Angaben zu Beschäftigung und Gehalt sind korrekt und vollständig.<br><br>
+      <em>We hereby confirm that the above-named person has been employed by our company since the date indicated, in the capacity described. All information regarding employment type and salary stated above is accurate and complete.</em><br><br>
+      Die genannte Person ist nach unserem Kenntnisstand zuverlässig und wir empfehlen sie / ihn als Mieterin / Mieter ohne Einschränkung.<br>
+      <em>To our knowledge, the named person is reliable and we recommend her / him as a tenant without reservation.</em>
+    </div>
+  </div>
+
+
+  <!-- SIGNATURES -->
+  <div class="signature-block">
+    <div class="sig-section-title">Unterschriften / Signatures</div>
+    <div class="sig-grid">
+
+      <!-- Employer signature -->
+      <div class="sig-col">
+        <div class="sig-col-label">Arbeitgeber / Employer</div>
+        <div class="sig-line-group">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:2px;">Name (Druckschrift / Print)</div>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-line-group">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:2px;">Funktion / Title</div>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-line-group">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:2px;">Ort, Datum / Place, Date</div>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-box-area">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:4px;">Unterschrift / Signature</div>
+          <div class="sig-draw-area">
+            <span class="sig-draw-label">Hier unterschreiben / Sign here</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee signature -->
+      <div class="sig-col">
+        <div class="sig-col-label">Arbeitnehmer/in — Bestätigung der Richtigkeit / Employee — Confirmation of Accuracy</div>
+        <div class="sig-line-group">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:2px;">Name (Druckschrift / Print)</div>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-line-group">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:2px;">&nbsp;</div>
+          <div class="sig-line" style="border:none;"></div>
+        </div>
+        <div class="sig-line-group">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:2px;">Ort, Datum / Place, Date</div>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-box-area">
+          <div class="field-label" style="font-size:7.5pt; margin-bottom:4px;">Unterschrift / Signature</div>
+          <div class="sig-draw-area">
+            <span class="sig-draw-label">Hier unterschreiben / Sign here</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    Dieses Dokument ersetzt keine notarielle Beglaubigung. Es dient ausschließlich der Information des Vermieters im Rahmen einer Wohnungsbewerbung und ist vertraulich zu behandeln.<br>
+    <em>This document does not replace a notarized certification. It is intended solely to inform a landlord as part of a rental application and should be treated as confidential.</em>
+  </div>
+
+</body>
+</html>
